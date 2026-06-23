@@ -1,0 +1,21 @@
+import { SVGProps } from 'react'
+
+export default function IconLogoWordmark({
+  ...props
+}: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width="2499"
+      height="1834"
+      viewBox="0 0 2499 1834"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M0 0H298.469L444.511 1445.34H447.089L591.862 0H889.062V1834H708.72V1296.76L722.678 294.65H717.602L546.142 1834H344.189L172.729 294.65H167.653L182.88 1296.76V1834H0V0ZM1172.15 0H1466.81L1659.88 1834H1464.27L1424.89 1403.42H1214.06L1172.15 1834H977.806L1172.15 0ZM1407.13 1237.05L1320.77 240.05H1315.65L1230.55 1237.05H1407.13ZM1822.66 162.571H1601.63V0H2229.1V162.571H2008.07V1834H1822.66V162.571ZM2311.04 0H2499V1834H2311.04V0Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}

@@ -1,0 +1,79 @@
+:root {
+  --blue-oklch: 0.6715 0.1168 248.27;
+  --brown-900-oklch: 0.2217 0.0074 48.37;
+  --brown-800-oklch: 0.3289 0.012 34.31;
+  --brown-700-oklch: 0.4265 0.0156 35.71;
+  --brown-600-oklch: 0.5179 0.0208 26.2;
+  --brown-500-oklch: 0.6063 0.024 28.45;
+  --brown-400-oklch: 0.6934 0.0211 33.38;
+  --brown-300-oklch: 0.7759 0.0193 34.3;
+  --brown-200-oklch: 0.8572 0.0167 46.55;
+  --brown-100-oklch: 0.9358 0.0154 48.55;
+}
+
+.dark-theme {
+  --theme-bg: oklch(var(--brown-900-oklch));
+  --theme-bg-subtle: oklch(var(--brown-800-oklch));
+
+  --theme-body: oklch(var(--brown-100-oklch));
+  --theme-body-subtle: oklch(var(--brown-400-oklch));
+  --theme-display: oklch(var(--brown-200-oklch));
+  --theme-display-subtle: oklch(var(--brown-500-oklch));
+
+  --theme-divider: oklch(var(--brown-700-oklch));
+
+  --theme-backdrop: oklch(var(--brown-800-oklch) / 0.8);
+  --theme-current-bg: var(--theme-bg);
+  .bg-bg-subtle {
+    --theme-current-bg: var(--theme-bg-subtle);
+  }
+}
+
+.light-theme {
+  --theme-bg: oklch(var(--brown-100-oklch));
+  --theme-bg-subtle: oklch(var(--brown-200-oklch));
+
+  --theme-body: oklch(var(--brown-900-oklch));
+  --theme-body-subtle: oklch(var(--brown-600-oklch));
+  --theme-display: oklch(var(--brown-800-oklch));
+  /* --theme-display-subtle is same in dark-theme */
+
+  --theme-divider: oklch(var(--brown-300-oklch));
+
+  --theme-backdrop: oklch(var(--brown-200-oklch) / 0.8);
+  --theme-current-bg: var(--theme-bg);
+  .bg-bg-subtle {
+    --theme-current-bg: var(--theme-bg-subtle);
+  }
+}
+
+@theme {
+  --color-blue: oklch(var(--blue-oklch));
+  --color-brown-900: oklch(var(--brown-900-oklch));
+  --color-brown-800: oklch(var(--brown-800-oklch));
+  --color-brown-700: oklch(var(--brown-700-oklch));
+  --color-brown-600: oklch(var(--brown-600-oklch));
+  --color-brown-500: oklch(var(--brown-500-oklch));
+  --color-brown-400: oklch(var(--brown-400-oklch));
+  --color-brown-300: oklch(var(--brown-300-oklch));
+  --color-brown-200: oklch(var(--brown-200-oklch));
+  --color-brown-100: oklch(var(--brown-100-oklch));
+}
+
+@theme inline {
+  --color-bg: var(--theme-bg);
+  --color-bg-subtle: var(--theme-bg-subtle);
+  --color-body: var(--theme-body);
+  --color-body-subtle: var(--theme-body-subtle);
+  --color-display: var(--theme-display);
+  --color-display-subtle: var(--theme-display-subtle);
+  --color-divider: var(--theme-divider);
+  --color-backdrop: var(--theme-backdrop);
+  --color-current-bg: var(--theme-current-bg);
+}
+
+body,
+.dark-theme:not(.theme-vars-only),
+.light-theme:not(.theme-vars-only) {
+  @apply bg-bg text-body;
+}

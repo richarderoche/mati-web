@@ -1,0 +1,89 @@
+@theme inline {
+  --font-sans: var(--sharp-earth), 'Helvetica Neue', helvetica, sans-serif;
+  --font-serif: var(--season-serif), serif;
+  --font-devanagari: var(--devanagari), sans-serif;
+}
+
+/* Headings - Serif */
+.ts-h1 {
+  @apply leading-110 -tracking-2 font-serif font-normal text-50 md:max-lg:text-66 xl:text-66 2xl:text-82 4xl:text-109;
+}
+
+.ts-h2 {
+  @apply leading-110 -tracking-2 font-serif font-normal text-33 md:max-lg:text-48 xl:text-48 2xl:text-62 4xl:text-82;
+}
+
+.ts-h3 {
+  @apply leading-110 -tracking-2 font-serif font-normal text-27 md:max-lg:text-41 xl:text-41 2xl:text-55 4xl:text-73;
+}
+
+.ts-h4-serif {
+  @apply leading-110 -tracking-2 font-serif font-normal text-22 md:max-lg:text-32 xl:text-32 2xl:text-41 4xl:text-50;
+}
+
+/* Page Title Versions - Keep Mobile Same as H2 */
+.ts-page-title-h1 {
+  @apply leading-110 -tracking-2 font-serif font-normal text-33 md:max-lg:text-66 lg:text-50 xl:text-66 2xl:text-82 4xl:text-109;
+}
+
+.ts-page-title-h2 {
+  @apply leading-110 -tracking-2 font-serif font-normal text-33 md:max-lg:text-48 xl:text-48 2xl:text-62 4xl:text-82;
+}
+
+.ts-page-title-h3 {
+  @apply leading-110 -tracking-2 font-serif font-normal text-33 md:max-lg:text-41 lg:text-27 xl:text-41 2xl:text-55 4xl:text-73;
+}
+
+/* Headings - Sans */
+.ts-h4 {
+  @apply leading-110 font-medium text-22 md:max-lg:text-32 xl:text-32 2xl:text-41 4xl:text-54;
+}
+
+/* Labels */
+.ts-h5 {
+  @apply uppercase leading-none tracking-8 font-bold text-13 md:max-lg:text-15 xl:text-15 2xl:text-17 4xl:text-22;
+}
+
+.ts-h6 {
+  @apply uppercase leading-none tracking-8 font-bold text-11 md:max-lg:text-12 xl:text-12 2xl:text-13 4xl:text-17;
+}
+
+/* Paragraphs */
+
+.ts-p-xl {
+  @apply leading-125 text-21 font-medium md:max-lg:text-28 xl:text-28 2xl:text-34 4xl:text-45;
+}
+
+.ts-p-lg {
+  @apply leading-125 text-18 font-medium md:max-lg:text-22 xl:text-22 2xl:text-26 4xl:text-34;
+}
+
+.ts-p-md {
+  @apply leading-125 text-15 md:max-lg:text-19 xl:text-19 2xl:text-22 4xl:text-29;
+}
+
+.ts-p-sm {
+  @apply leading-125 text-12 md:max-lg:text-14 xl:text-14 2xl:text-16 4xl:text-21;
+}
+
+.ts-p-xs {
+  @apply leading-125 text-10 md:max-lg:text-12 xl:text-12 2xl:text-14 4xl:text-18;
+}
+
+.ts-input {
+  @apply leading-125 text-14 2xl:text-16 4xl:text-21;
+}
+
+/* sm > md > xl */
+.ts-p-dynamic {
+  @apply leading-125 text-15 md:max-lg:text-19 xl:text-28 2xl:text-34 4xl:text-45;
+}
+
+.ts-tooltip {
+  @apply uppercase leading-none tracking-5 font-medium text-7.5;
+}
+
+/* Misc */
+.inline-link {
+  @apply nice-underline transition-opacity hover:opacity-50;
+}

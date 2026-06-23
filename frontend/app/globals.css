@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+@import './css/_responsive.css';
+@import './css/_utilities.css';
+@import './css/_colors.css';
+@import './css/_type.css';
+@import './css/_prose.css';
+@import './css/_lenis.css';
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "tw-easing-gradients";
+
+@theme {
+  /* (mirror in _responsive.css if edited) */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 37.5rem; /* 600px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
+  --breakpoint-2xl: 90rem; /* 1440px */
+  --breakpoint-3xl: 100rem; /* 1600px */
+  --breakpoint-4xl: 120rem; /* 1920px */
+  --breakpoint-5xl: 140rem; /* 2240px */
+  --breakpoint-6xl: 160rem; /* 2560px */
+  /* (mirror in _responsive.css if edited) */
+
+  --leading-*: initial;
+  --tracking-*: initial;
+
+  --spacing: 0.0625rem;
+  --spacing-em: 1em;
+  --spacing-gut: var(--gut);
+  --spacing-gut-25: calc(var(--gut) * 0.25);
+  --spacing-gut-50: calc(var(--gut) * 0.5);
+  --spacing-gut-75: calc(var(--gut) * 0.75);
+  --spacing-gut-100: var(--gut);
+  --spacing-gut-150: calc(var(--gut) * 1.5);
+  --spacing-gut-200: calc(var(--gut) * 2);
+  --spacing-gut-250: calc(var(--gut) * 2.5);
+  --spacing-gut-300: calc(var(--gut) * 3);
+  --spacing-gut-400: calc(var(--gut) * 4);
+  --spacing-gut-500: calc(var(--gut) * 5);
+  --spacing-gut-600: calc(var(--gut) * 6);
+  --spacing-gut-700: calc(var(--gut) * 7);
+  --spacing-gut-800: calc(var(--gut) * 8);
+  --spacing-gut-900: calc(var(--gut) * 9);
+  --spacing-gut-1000: calc(var(--gut) * 10);
+  --spacing-outdent: -0.065em;
+  --spacing-max-ch: 50ch;
+  --spacing-header: calc(var(--gut) * 2.5);
+  --spacing-header-gut: calc(var(--gut) * 3.5);
+  --spacing-header-ico-h: calc(var(--gut) * 1.5);
+  --spacing-main-nav-height: calc(100vh - var(--gut) * 4.5);
+  --spacing-btn: var(--btnHeight);
+  --spacing-btn-half: calc(var(--btnHeight) * 0.5);
+  --spacing-btn-shift: calc(100% - (var(--btnHeight) + 2px));
+  --spacing-arrow-shift: calc(var(--btnHeight) + 2px);
+  --spacing-half-minus-gut: calc(50% - (var(--gut) * 1.5));
+
+  /* Use .corner-container > .corner or .corner-sm
+  for container-relative rounded corners */
+  --radius-xs: 0.4rem;
+  --radius-sm: 0.5rem;
+  --radius-md-nested: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg-nested: 1.25rem;
+  --radius-lg: 2rem;
+}
+
+body {
+  @apply antialiased min-w-[320px] selection:bg-brown-500/50;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+.lined-grid-pending {
+  visibility: hidden;
+}
+
+.lined-grid .lined-grid-cell {
+  @apply bg-bg py-gut h-full;
+}
+
+.neighbor-left .column-blocks > *:not([data-ignore-neighbor-padding]) {
+  @apply pl-gut;
+}
+
+.neighbor-right .column-blocks > *:not([data-ignore-neighbor-padding]) {
+  @apply pr-gut;
+}
+
+.corner-container {
+  @apply @container;
+}
+
+.corner {
+  @apply rounded-md @md:rounded-lg overflow-hidden;
+}
+
+.corner-nested {
+  @apply rounded-md-nested @md:rounded-lg-nested overflow-hidden;
+}
+
+.corner-sm {
+  @apply rounded-xs @md:rounded-sm overflow-hidden;
+}
+
+.sepia-overlay,
+.blue-overlay {
+  @apply absolute inset-0 pointer-events-none z-1 sepia-transition;
+}
+
+.sepia-overlay-multiply {
+  background-color: oklch(var(--brown-700-oklch) / 0.6);
+  mix-blend-mode: multiply;
+}
+
+.sepia-overlay-screen {
+  background-color: oklch(var(--brown-800-oklch));
+  mix-blend-mode: screen;
+}
+
+.blue-overlay-multiply {
+  background-color: oklch(var(--blue-oklch) / 0.6);
+  mix-blend-mode: multiply;
+}
+
+.blue-overlay-screen {
+  background-color: oklch(var(--blue-oklch) / 0.8);
+  mix-blend-mode: screen;
+}
+
+.svg-size-wrapper svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.matrix-item-hovered {
+  button:not(:hover) {
+    opacity: 0.2;
+  }
+}
