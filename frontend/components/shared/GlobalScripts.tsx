@@ -2,7 +2,7 @@ import ConsoleLog from '@/components/scripts/ConsoleLog'
 import CustomScripts from '@/components/scripts/CustomScripts'
 import { sanityFetch } from '@/sanity/lib/live'
 import { settingsQuery } from '@/sanity/lib/queries'
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 
 export default async function GlobalScripts() {
   const { data: settings } = await sanityFetch({
@@ -10,13 +10,17 @@ export default async function GlobalScripts() {
     stega: false,
   })
   const { googletagmanagerID, customScripts } = settings || {}
+  const googleTrackingId = googletagmanagerID?.trim()
   const enableProdScripts =
     process.env.NEXT_PUBLIC_PRODUCTION_SCRIPTS === 'true'
 
   return (
     <>
-      {enableProdScripts && googletagmanagerID && (
-        <GoogleTagManager gtmId={googletagmanagerID} />
+      {googleTrackingId?.startsWith('G-') && (
+        <GoogleAnalytics gaId={googleTrackingId} />
+      )}
+      {googleTrackingId?.startsWith('GTM-') && (
+        <GoogleTagManager gtmId={googleTrackingId} />
       )}
       {customScripts && (
         <CustomScripts
