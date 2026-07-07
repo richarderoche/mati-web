@@ -57,16 +57,23 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const { data } = await sanityFetch({
-    query: slugsByTypeQuery,
-    params: { type: 'article' },
-    stega: false,
-    perspective: 'published',
-  })
-  const internalArticles = data.filter(
-    (article) => article.postType === 'internal'
+  const [articles, farmerStories] = await Promise.all([
+    sanityFetch({
+      query: slugsByTypeQuery,
+      params: { type: 'article' },
+      stega: false,
+      perspective: 'published',
+    }),
+    sanityFetch({
+      query: slugsByTypeQuery,
+      params: { type: 'farmerStory' },
+      stega: false,
+      perspective: 'published',
+    }),
+  ])
+  return [...articles.data, ...farmerStories.data].filter(
+    (item) => item.postType === 'internal'
   )
-  return internalArticles
 }
 
 export default async function ArticleSlugRoute({ params }: Props) {
