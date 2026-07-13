@@ -86,6 +86,7 @@ export default function QuoteTranslation({
 
   const nativeAlphabetClass =
     nativeAlphabet === 'devanagari' ? 'font-devanagari' : 'font-sans'
+  const nativeLang = nativeAlphabet === 'devanagari' ? 'hi' : undefined
 
   return (
     <div
@@ -94,11 +95,16 @@ export default function QuoteTranslation({
       style={hasBothQuotes ? { visibility: 'hidden' } : undefined}
     >
       {quoteNative && (
-        <div ref={quoteNativeRef} className={nativeAlphabetClass}>
+        <div
+          ref={quoteNativeRef}
+          className={nativeAlphabetClass}
+          lang={nativeLang}
+          translate="no"
+        >
           <p className="hanging-quotes">{quoteNative}</p>
         </div>
       )}
-      <div ref={quoteEnglishRef}>
+      <div ref={quoteEnglishRef} lang="en">
         <p className="hanging-quotes">{quoteEnglish}</p>
       </div>
     </div>

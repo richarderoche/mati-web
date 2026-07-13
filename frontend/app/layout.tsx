@@ -34,6 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
       : undefined,
     description: settings?.description ? settings.description : undefined,
     openGraph: {
+      locale: 'en_US',
       images: ogImage ? [ogImage] : [],
     },
     formatDetection: {

@@ -53,8 +53,12 @@ export default function SectionMatrixHero({
             {(hasTextBlocks || hasCTAButtons) && (
               <div className="flex flex-col gap-gut-75 grow justify-center lg:pr-gut-200">
                 {hasTextBlocks &&
-                  textBlocks?.map((block) => (
-                    <PlainTextBlock key={block._key} block={block} />
+                  textBlocks?.map((block, i) => (
+                    <PlainTextBlock
+                      key={block._key}
+                      block={block}
+                      useH1={i === 0}
+                    />
                   ))}
                 {hasCTAButtons && (
                   <div className="flex flex-wrap gap-gut-50 mt-gut-25">

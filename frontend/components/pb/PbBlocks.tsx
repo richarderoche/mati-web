@@ -240,7 +240,7 @@ export default function PbBlocks({
   )
 }
 
-export function PlainTextBlock({ block }) {
+export function PlainTextBlock({ block, useH1 = false }) {
   return (
     <div
       className={cn(
@@ -249,7 +249,7 @@ export function PlainTextBlock({ block }) {
         block.balanceLines ? 'text-balance' : 'text-pretty'
       )}
     >
-      {block.textContent || ''}
+      {useH1 ? <h1>{block.textContent}</h1> : <>{block.textContent}</>}
     </div>
   )
 }
