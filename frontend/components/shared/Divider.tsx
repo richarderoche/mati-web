@@ -23,7 +23,7 @@ export default function Divider({
         'h-1 w-full hidden',
         !showDividerLine && 'opacity-0',
         showOnMobile ? 'max-md:block' : '',
-        showOnTablet ? 'max-lg:block' : '',
+        showOnTablet ? 'md:max-lg:block' : '',
         showOnDesktop ? 'lg:block' : '',
         className ? className : 'bg-divider',
         size === 2

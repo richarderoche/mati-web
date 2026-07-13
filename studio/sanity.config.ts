@@ -6,6 +6,7 @@ import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
 import { noteField } from 'sanity-plugin-note-field'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
+import { resolve } from './presentation/resolve'
 import { schemaTypes, singletonSchemaTypes } from './schemaTypes'
 import { pageStructure } from './structure'
 
@@ -47,6 +48,7 @@ export default defineConfig({
         origin: SANITY_STUDIO_PREVIEW_URL,
         previewMode: { enable: '/api/draft-mode/enable' },
       },
+      resolve,
     }),
     //muxInput(muxConfig),
     ...(process.env.NODE_ENV !== 'production' ? [visionTool()] : []),
