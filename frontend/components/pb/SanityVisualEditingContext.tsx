@@ -1,6 +1,6 @@
 'use client'
 
-import { createDataAttribute } from 'next-sanity'
+import { createDataAttribute } from '@sanity/visual-editing/create-data-attribute'
 import {
   createContext,
   useContext,

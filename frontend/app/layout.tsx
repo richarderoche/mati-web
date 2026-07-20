@@ -13,7 +13,7 @@ import { draftMode } from 'next/headers'
 import type { Image } from 'sanity'
 import { Toaster } from 'sonner'
 import { handleError } from './client-functions'
-import { DraftModeTools } from './DraftModeTools'
+import { DraftModeBootstrap } from './DraftModeBootstrap'
 import { devanagariFont, sansFont, serifFont } from './fonts'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -94,7 +94,7 @@ export default async function RootLayout({
 
         <Toaster />
         <SanityLive onError={handleError} />
-        {isDraftMode && <DraftModeTools />}
+        {isDraftMode ? <DraftModeBootstrap /> : null}
         <GlobalScripts />
       </body>
     </html>
