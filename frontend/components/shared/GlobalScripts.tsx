@@ -1,13 +1,8 @@
 import ConsoleLog from '@/components/scripts/ConsoleLog'
+import CustomScriptsLoader from '@/components/scripts/CustomScriptsLoader'
 import { sanityFetch } from '@/sanity/lib/live'
 import { settingsQuery } from '@/sanity/lib/queries'
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
-import dynamic from 'next/dynamic'
-
-const CustomScripts = dynamic(
-  () => import('@/components/scripts/CustomScripts'),
-  { ssr: false }
-)
 
 export default async function GlobalScripts() {
   const { data: settings } = await sanityFetch({
@@ -28,7 +23,7 @@ export default async function GlobalScripts() {
         <GoogleTagManager gtmId={googleTrackingId} />
       )}
       {customScripts?.length ? (
-        <CustomScripts
+        <CustomScriptsLoader
           customScripts={customScripts}
           enableProdScripts={enableProdScripts}
         />
