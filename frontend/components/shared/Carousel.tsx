@@ -213,6 +213,7 @@ function CarouselNav({
   className,
   index,
   children,
+  'aria-label': ariaLabel,
   ...props
 }: React.ComponentProps<'button'> & { index: number }) {
   const { scrollTo } = useCarousel()
@@ -223,6 +224,7 @@ function CarouselNav({
       className={cn('touch-manipulation', className)}
       onClick={() => scrollTo(index)}
       onMouseEnter={() => scrollTo(index)}
+      aria-label={ariaLabel ?? `Go to slide ${index + 1}`}
       {...props}
     >
       {children}

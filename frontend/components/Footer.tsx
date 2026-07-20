@@ -93,9 +93,9 @@ export default async function Footer() {
             {hasMailchimp && (
               <div className="">
                 {footerCTAMailchimp?.heading && (
-                  <h3 className="ts-h6 text-body-subtle mb-gut-25">
+                  <div className="ts-h6 text-body-subtle mb-gut-25">
                     {footerCTAMailchimp?.heading}
-                  </h3>
+                  </div>
                 )}
                 <MailchimpEmail
                   mcFormUrl={footerCTAMailchimp.mcFormUrl as string}

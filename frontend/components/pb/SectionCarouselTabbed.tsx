@@ -130,7 +130,7 @@ export default function SectionCarouselTabbed({
 
                             !prefersReducedMotion && 'lg:transition-all'
                           )}
-                          sizes="(min-width: 1024px) 40vw, 80vw"
+                          sizes="(min-width: 1024px) 37vw, 80vw"
                           maxDimension={800}
                         />
                       )}
@@ -160,8 +160,17 @@ export default function SectionCarouselTabbed({
 
         {/* Mobile Dot Navigation */}
         <div className="mt-gut-75 flex gap-12 lg:hidden">
-          {slides.map((slide, i) => (
-            <CarouselNav key={slide._key} index={i}>
+          {slides.map(({ _key, heading }, i) => (
+            <CarouselNav
+              key={_key}
+              index={i}
+              aria-label={
+                heading
+                  ? `Go to slide ${i + 1}: ${heading}`
+                  : `Go to slide ${i + 1}`
+              }
+              aria-current={selectedIndex === i ? 'true' : undefined}
+            >
               <div
                 className={cn(
                   'size-12 rounded-full transition-colors border',
@@ -169,6 +178,7 @@ export default function SectionCarouselTabbed({
                     ? 'bg-blue border-blue'
                     : 'bg-transparent border border-divider'
                 )}
+                aria-hidden
               />
             </CarouselNav>
           ))}
