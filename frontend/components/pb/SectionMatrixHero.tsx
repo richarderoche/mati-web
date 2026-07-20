@@ -1,6 +1,7 @@
 'use client'
 
 import { MatrixItem, PbMatrixHero } from '@/sanity.types'
+import { getImageDimensions } from '@sanity/asset-utils'
 
 import { useViewport } from '@/lib/real-viewport'
 import { useStore } from '@/lib/store'
@@ -109,7 +110,9 @@ export default function SectionMatrixHero({
                   <div className="flex flex-col corner-container">
                     {column.matrixItems?.map((item) => {
                       const { image, imageCrop } = item
-                      if (!image) return null
+                      if (!image?.asset?._ref) return null
+                      const { width, height } = getImageDimensions(image.asset)
+                      const aspectRatio = imageCrop || width / height
                       return (
                         <button
                           key={item._key}
@@ -120,7 +123,10 @@ export default function SectionMatrixHero({
                           type="button"
                           aria-label={item.title}
                         >
-                          <div className="corner-sm group relative">
+                          <div
+                            className="corner-sm group relative w-full"
+                            style={{ aspectRatio }}
+                          >
                             {item.image && (
                               <ImageBasic
                                 image={image}

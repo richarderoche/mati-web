@@ -1,5 +1,6 @@
 'use client'
 
+import '@/app/css/marqy.css'
 import { cn } from '@/lib/utils'
 import { useCallback, useEffect, useEffectEvent, useRef, useState } from 'react'
 

@@ -1,5 +1,4 @@
 'use client'
-import '@/app/css/marqy.css'
 import { cn } from '@/lib/utils'
 import { PbBlockMarquee } from '@/sanity.types'
 import { getImageDimensions } from '@sanity/asset-utils'
