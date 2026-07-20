@@ -1,24 +1,25 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { NavItem, PbBlocksQueryResult } from '@/types'
+import { PbBlocksQueryResult } from '@/types'
 import { PortableTextBlock } from 'next-sanity'
-import Link from 'next/link'
 import type { Image as SanityImageType } from 'sanity'
-import Button from '../shared/Button'
 import CopyButton from '../shared/CopyButton'
 import { CustomPortableText } from '../shared/CustomPortableText'
 import Divider from '../shared/Divider'
 import ImageBasic from '../shared/ImageBasic'
 import Lottie from '../shared/Lottie'
-import Pill from '../shared/Pill'
 import RichTextWrap from '../shared/RichTextWrap'
 import SepiaOverlays from '../shared/SepiaOverlays'
 import SocialIconList from '../shared/SocialIconList'
 import VideoEmbed from '../shared/VideoEmbed'
+import { ButtonBlock } from './ButtonBlock'
 import MapboxBlock from './MapboxBlock'
 import MarqueeBlock from './MarqueeBlock'
+import { PlainTextBlock } from './PlainTextBlock'
+import { PublicationsListBlock } from './PublicationsListBlock'
 import { useSanityDataAttribute } from './SanityVisualEditingContext'
+import { ratioPadding } from './ratioPadding'
 
 export interface PbBlocksProps {
   columnBlocks: PbBlocksQueryResult
@@ -238,107 +239,4 @@ export default function PbBlocks({
         })}
     </div>
   )
-}
-
-export function PlainTextBlock({ block, useH1 = false }) {
-  return (
-    <div
-      className={cn(
-        block.textStyle || 'ts-p-md',
-        block.color,
-        block.balanceLines ? 'text-balance' : 'text-pretty'
-      )}
-    >
-      {useH1 ? <h1>{block.textContent}</h1> : <>{block.textContent}</>}
-    </div>
-  )
-}
-
-export function ButtonBlock({ block, onClick }) {
-  return (
-    <>
-      {block.linkType === 'sitePage' && (
-        <Button navItem={block.sitePage as NavItem} onClick={onClick} />
-      )}
-      {block.linkType === 'externalLink' && (
-        <Button navItem={block.externalLink as NavItem} onClick={onClick} />
-      )}
-      {block.linkType === 'file' && (
-        <Button
-          path={block.fileLink?.url || ''}
-          text={block.fileLink?.buttonText || 'Download'}
-          download
-          onClick={onClick}
-        />
-      )}
-    </>
-  )
-}
-
-export function PublicationsListBlock({ publication }) {
-  const {
-    title,
-    description,
-    authors,
-    dateLabel,
-    linkType,
-    url,
-    fileUrl,
-    linkText,
-  } = publication
-  const href =
-    linkType === 'externalLink' ? url : linkType === 'file' ? fileUrl : null
-  if (!href) return null
-  const label = linkText || href
-  return (
-    <div className="border-t border-divider py-gut text-pretty">
-      <Link
-        href={href}
-        target={linkType === 'externalLink' ? '_blank' : undefined}
-        rel={linkType === 'externalLink' ? 'noopener noreferrer' : undefined}
-        className="block theme-vars-only"
-        onMouseEnter={(e) => {
-          if (window.matchMedia('(pointer: fine)').matches) {
-            e.currentTarget.classList.add('light-theme')
-          }
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.classList.remove('light-theme')
-        }}
-      >
-        <div className="flex flex-col gap-gut-50 corner-sm p-gut-50 bg-bg-subtle text-body-subtle transition-colors">
-          <div className="flex flex-wrap gap-x-gut-25 gap-y-gut-50 items-center justify-between mb-gut-25">
-            {dateLabel && (
-              <Pill className="border border-divider">{dateLabel}</Pill>
-            )}
-            <p className="ts-p-xs">{label}</p>
-          </div>
-          <h4 className="ts-h4-serif text-body transition-colors">{title}</h4>
-          {description && <p className="ts-p-xs">{description}</p>}
-          {authors && (
-            <p className="ts-p-xs">
-              {authors.map((author, i) => (
-                <span key={author._key} className="font-bold">
-                  {i > 0 && <span>, </span>}
-                  <span className={author.highlight && 'text-blue'}>
-                    {author.name}
-                  </span>
-                </span>
-              ))}
-            </p>
-          )}
-        </div>
-      </Link>
-    </div>
-  )
-}
-
-export function ratioPadding({
-  width,
-  height,
-}: {
-  width: number
-  height: number
-}) {
-  return (height / width) * 100 + '%'
 }

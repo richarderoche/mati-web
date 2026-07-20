@@ -11,7 +11,7 @@ import Lottie from '../shared/Lottie'
 import SepiaOverlays from '../shared/SepiaOverlays'
 import SiteGrid from '../shared/SiteGrid'
 import SiteWidth from '../shared/SiteWidth'
-import { PlainTextBlock } from './PbBlocks'
+import { PlainTextBlock } from './PlainTextBlock'
 
 // Scroll distance per step
 const STEP_SCROLL_D = 250

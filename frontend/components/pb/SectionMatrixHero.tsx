@@ -12,7 +12,8 @@ import { Marqy } from '../shared/Marqy'
 import SiteGrid from '../shared/SiteGrid'
 import SiteWidth, { SITE_MAX_WIDTH } from '../shared/SiteWidth'
 import MatrixOverlay from './MatrixOverlay'
-import { ButtonBlock, PlainTextBlock } from './PbBlocks'
+import { ButtonBlock } from './ButtonBlock'
+import { PlainTextBlock } from './PlainTextBlock'
 
 export default function SectionMatrixHero({
   section,

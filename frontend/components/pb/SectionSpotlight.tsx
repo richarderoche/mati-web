@@ -9,7 +9,7 @@ import RichTextWrap from '../shared/RichTextWrap'
 import SepiaOverlays from '../shared/SepiaOverlays'
 import SiteGrid from '../shared/SiteGrid'
 import SiteWidth, { SITE_MAX_WIDTH } from '../shared/SiteWidth'
-import { ButtonBlock } from './PbBlocks'
+import { ButtonBlock } from './ButtonBlock'
 
 export default function SectionSpotlight({
   section,

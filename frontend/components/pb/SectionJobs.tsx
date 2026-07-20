@@ -6,7 +6,7 @@ import Pill from '../shared/Pill'
 import Revealer from '../shared/Revealer'
 import SiteGrid from '../shared/SiteGrid'
 import SiteWidth from '../shared/SiteWidth'
-import { ButtonBlock } from './PbBlocks'
+import { ButtonBlock } from './ButtonBlock'
 
 export default function SectionJobs({ section }: { section: PbJobs }) {
   const { rowWidth, jobs } = section

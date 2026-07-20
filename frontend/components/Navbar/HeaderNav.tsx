@@ -13,7 +13,7 @@ import { PbBlockButton, SettingsQueryResult } from '@/sanity.types'
 import Link from 'next/link'
 import IconLogoSymbol from '../icons/IconLogoSymbol'
 import IconNav from '../icons/IconNav'
-import { ButtonBlock } from '../pb/PbBlocks'
+import { ButtonBlock } from '../pb/ButtonBlock'
 import ImageBasic from '../shared/ImageBasic'
 import SiteWidth from '../shared/SiteWidth'
 
