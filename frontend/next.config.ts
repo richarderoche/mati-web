@@ -1,6 +1,7 @@
 import bundleAnalyzer from '@next/bundle-analyzer'
 import type { NextConfig } from 'next'
 import { groq } from 'next-sanity'
+import { redirects } from './lib/redirects'
 import { client } from './sanity/lib/client'
 
 const redirectsQuery = groq`*[
@@ -61,7 +62,7 @@ const nextConfig: NextConfig = {
       permanent: Boolean(r.permanent),
     }))
 
-    return sanitizedRedirects
+    return [...sanitizedRedirects, ...redirects]
   },
 }
 

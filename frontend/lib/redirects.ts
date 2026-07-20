@@ -1,0 +1,101 @@
+const toHome = ['/-', '/home', '/project_category', '/project_category/:path*']
+
+const redirectsHome = [
+  ...toHome.map((path) => ({
+    source: path,
+    destination: '/',
+    permanent: true,
+  })),
+]
+
+const toNews = [
+  '/2023',
+  '/2023/:path*',
+  '/2024',
+  '/2024/:path*',
+  '/2025',
+  '/2025/:path*',
+  '/2026',
+  '/2026/:path*',
+  '/author',
+  '/author/:path*',
+  '/category',
+  '/category/:path*',
+  '/feed',
+  '/tag',
+  '/tag/:path*',
+  '/topic',
+  '/topic/:path*',
+  '/topic/:path*',
+  '/mati-carbon-launches-new-brand-identity',
+]
+
+const redirectsNews = [
+  ...toNews.map((path) => ({
+    source: path,
+    destination: '/news',
+    permanent: true,
+  })),
+]
+
+const redirectArticles = [
+  {
+    source: '/2024-wrapped',
+    destination: '/articles/2024-wrapped',
+    permanent: true,
+  },
+  {
+    source: '/2025/01/06/2024-wrapped',
+    destination: '/articles/2024-wrapped',
+    permanent: true,
+  },
+  {
+    source: '/2025-a-break-out-year-for-mati-carbon',
+    destination: '/articles/2025-a-break-out-year-for-mati-carbon',
+    permanent: true,
+  },
+  {
+    source:
+      '/2023/09/08/frontier-climate-selects-mati-carbon-in-its-cdr-pre-purchase-program-for-its-unique-scientific-mrv-process-and-farmer-co-benefits',
+    destination:
+      '/articles/frontier-climate-selects-mati-carbon-in-its-cdr-pre-purchase-program-for-its-unique-scientific',
+    permanent: true,
+  },
+  {
+    source:
+      '/enhanced-weathering-in-the-us-corn-belt-delivers-carbon-removal-with-agronomic-benefits',
+    destination:
+      '/articles/enhanced-weathering-in-the-us-corn-belt-delivers-carbon-removal-with-agronomic-benefits',
+    permanent: true,
+  },
+  {
+    source: '/how-to-measure-carbon-removal-with-agronomic-benefits',
+    destination:
+      '/articles/how-to-measure-carbon-removal-with-agronomic-benefits',
+    permanent: true,
+  },
+  {
+    source:
+      '/mati-carbon-is-the-grand-prize-winner-of-the-xprize-carbon-removal-competition',
+    destination: '/articles/mati-carbon-is-the-usd50m-grand-prize-winner',
+    permanent: true,
+  },
+  {
+    source:
+      '/mati-carbon-selected-as-top-20-finalist-for-xprize-carbon-removal',
+    destination:
+      '/articles/mati-carbon-selected-as-top-20-finalist-for-xprize-carbon-removal',
+    permanent: true,
+  },
+  {
+    source: '/what-it-actually-takes-to-verify-carbon-removal',
+    destination: '/articles/what-it-actually-takes-to-verify-carbon-removal',
+    permanent: true,
+  },
+]
+
+export const redirects = [
+  ...redirectArticles,
+  ...redirectsNews,
+  ...redirectsHome,
+]

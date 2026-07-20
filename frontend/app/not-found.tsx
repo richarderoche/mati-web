@@ -7,7 +7,7 @@ import SiteWidth from '@/components/shared/SiteWidth'
 
 export default function NotFound() {
   return (
-    <PageWrapper>
+    <PageWrapper className="mt-gut">
       <PageHeader title="Not Found" />
       <SiteWidth className="mt-gut">
         <RichTextWrap>
