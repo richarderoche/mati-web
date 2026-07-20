@@ -11,8 +11,8 @@ import ImageBasic from '../shared/ImageBasic'
 import { Marqy } from '../shared/Marqy'
 import SiteGrid from '../shared/SiteGrid'
 import SiteWidth, { SITE_MAX_WIDTH } from '../shared/SiteWidth'
-import MatrixOverlay from './MatrixOverlay'
 import { ButtonBlock } from './ButtonBlock'
+import MatrixOverlay from './MatrixOverlay'
 import { PlainTextBlock } from './PlainTextBlock'
 
 export default function SectionMatrixHero({
@@ -117,6 +117,8 @@ export default function SectionMatrixHero({
                           onClick={() => {
                             handleItemClick(item)
                           }}
+                          type="button"
+                          aria-label={item.title}
                         >
                           <div className="corner-sm group relative">
                             {item.image && (

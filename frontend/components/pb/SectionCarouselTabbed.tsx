@@ -130,7 +130,8 @@ export default function SectionCarouselTabbed({
 
                             !prefersReducedMotion && 'lg:transition-all'
                           )}
-                          sizes="(min-width: 1024px) 50vw, 80vw"
+                          sizes="(min-width: 1024px) 40vw, 80vw"
+                          maxDimension={800}
                         />
                       )}
                     </div>
