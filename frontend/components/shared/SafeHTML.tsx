@@ -1,17 +1,19 @@
 'use client'
-import DOMPurify from 'isomorphic-dompurify'
-import { useMemo } from 'react'
+import DOMPurify from 'dompurify'
+import { useEffect, useState } from 'react'
 
 export default function SafeHTML({
   html,
   ...rest
 }: { html: string } & React.ComponentPropsWithoutRef<'div'> &
   React.HTMLAttributes<HTMLDivElement>) {
-  const sanitizedContent = useMemo(
-    () => ({
-      __html: DOMPurify.sanitize(html),
-    }),
-    [html]
-  )
-  return <div dangerouslySetInnerHTML={sanitizedContent} {...rest} />
+  const [sanitizedHtml, setSanitizedHtml] = useState('')
+
+  useEffect(() => {
+    setSanitizedHtml(DOMPurify.sanitize(html))
+  }, [html])
+
+  if (!sanitizedHtml) return <div {...rest} />
+
+  return <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} {...rest} />
 }
