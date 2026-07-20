@@ -9,12 +9,11 @@ import { sanityFetch, SanityLive } from '@/sanity/lib/live'
 import { settingsQuery } from '@/sanity/lib/queries'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { Metadata, Viewport } from 'next'
-import { VisualEditing } from 'next-sanity/visual-editing'
 import { draftMode } from 'next/headers'
 import type { Image } from 'sanity'
 import { Toaster } from 'sonner'
 import { handleError } from './client-functions'
-import { DraftModeToast } from './DraftModeToast'
+import { DraftModeTools } from './DraftModeTools'
 import { devanagariFont, sansFont, serifFont } from './fonts'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -95,12 +94,7 @@ export default async function RootLayout({
 
         <Toaster />
         <SanityLive onError={handleError} />
-        {isDraftMode && (
-          <>
-            <DraftModeToast />
-            <VisualEditing />
-          </>
-        )}
+        {isDraftMode && <DraftModeTools />}
         <GlobalScripts />
       </body>
     </html>
