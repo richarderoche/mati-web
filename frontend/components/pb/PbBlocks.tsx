@@ -3,23 +3,25 @@
 import { cn } from '@/lib/utils'
 import { PbBlocksQueryResult } from '@/types'
 import { PortableTextBlock } from 'next-sanity'
+import dynamic from 'next/dynamic'
 import type { Image as SanityImageType } from 'sanity'
 import CopyButton from '../shared/CopyButton'
 import { CustomPortableText } from '../shared/CustomPortableText'
 import Divider from '../shared/Divider'
 import ImageBasic from '../shared/ImageBasic'
-import Lottie from '../shared/Lottie'
 import RichTextWrap from '../shared/RichTextWrap'
 import SepiaOverlays from '../shared/SepiaOverlays'
 import SocialIconList from '../shared/SocialIconList'
-import VideoEmbed from '../shared/VideoEmbed'
 import { ButtonBlock } from './ButtonBlock'
-import MapboxBlock from './MapboxBlock'
-import MarqueeBlock from './MarqueeBlock'
 import { PlainTextBlock } from './PlainTextBlock'
 import { PublicationsListBlock } from './PublicationsListBlock'
 import { useSanityDataAttribute } from './SanityVisualEditingContext'
 import { ratioPadding } from './ratioPadding'
+
+const MapboxBlock = dynamic(() => import('./MapboxBlock'), { ssr: false })
+const MarqueeBlock = dynamic(() => import('./MarqueeBlock'))
+const VideoEmbed = dynamic(() => import('../shared/VideoEmbed'), { ssr: false })
+const Lottie = dynamic(() => import('../shared/Lottie'), { ssr: false })
 
 export interface PbBlocksProps {
   columnBlocks: PbBlocksQueryResult
