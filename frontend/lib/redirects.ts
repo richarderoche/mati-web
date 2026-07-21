@@ -52,6 +52,7 @@ const toNews = [
   '/topic/:path*',
   '/topic/:path*',
   '/mati-carbon-launches-new-brand-identity',
+  '/mati-carbon-adopts-new-brand-identity',
   '/announcement/:path*',
 ]
 
