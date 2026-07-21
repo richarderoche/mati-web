@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       //disallow: '/private/',
     },
-    sitemap: 'https://www.mati.earth/sitemap.xml',
+    sitemap: 'https://mati.earth/sitemap.xml',
   }
 }
